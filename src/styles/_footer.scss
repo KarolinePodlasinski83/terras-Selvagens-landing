@@ -1,0 +1,172 @@
+@use './variaveis';
+
+// ===== Logo fixa no canto inferior esquerdo =====
+.logo-fixa-inferior {
+    img {
+        width: 65px;
+        height: auto;
+        background: transparent;
+        mix-blend-mode: screen;
+        border-radius: 60%;
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        z-index: 9999;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(250, 26, 26, 0.6);
+        }
+    }
+}
+
+// ================= FOOTER =================
+.footer {
+    background: linear-gradient(135deg, variaveis.$corDeFundo, #1a1a1a);
+    padding: 50px 0;
+    border-top: 2px solid #fa1a1a;
+    color: #f0f0f0;
+    font-family: 'Inter', sans-serif;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    // ===== Logo com fumaça neon =====
+    &__logo {
+        position: relative;
+        background: transparent;
+        display: inline-block; // Garante que o container da logo respeite o tamanho
+
+        img {
+            width: 110px;
+            object-fit: contain;
+            border-radius: 6px;
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            mix-blend-mode: screen; // Adicionado aqui para manter o efeito
+            transition: transform 0.4s ease, filter 0.4s ease;
+
+            &:hover {
+                transform: scale(1.12);
+                filter: brightness(1.25) drop-shadow(0 0 12px rgba(0, 255, 178, 0.9));
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -25px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(0, 255, 178, 0.45) 0%,
+                rgba(0, 255, 178, 0.25) 30%,
+                rgba(0, 255, 178, 0.08) 55%,
+                transparent 70%
+            );
+            filter: blur(18px);
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            animation: smokeFloat 5s infinite linear;
+            pointer-events: none;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    }
+
+    // ===== Redes sociais (direita) =====
+    &__social {
+        margin-left: auto;
+        display: flex;
+        list-style: none;
+        gap: 18px;
+
+        li a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border: 1px solid rgba(0, 255, 178, 0.25);
+            color: #b9fff0;
+            font-size: 22px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.35s ease;
+
+            &:hover {
+                transform: translateY(-4px) scale(1.15);
+                background: linear-gradient(135deg, #00ffb2, #00c78a);
+                color: #02140e;
+                box-shadow: 0 0 12px rgba(0, 255, 178, 0.6), 0 0 30px rgba(0, 255, 178, 0.45);
+            }
+
+            i {
+                transition: transform 0.35s ease;
+            }
+
+            &:hover i {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    // ===== Copyright =====
+    &__copyright {
+        text-align: center;
+        font-size: 14px;
+        color: #c4c4c4;
+        margin-top: 30px;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+
+        a {
+            pointer-events: none;
+            color: variaveis.$corDoTextoPrincipal;
+            text-decoration: none;
+        }
+    }
+} // <--- O fechamento do .footer deve ser aqui!
+
+// ===== Animação fumaça =====
+@keyframes smokeFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(6px, -6px) scale(1.08); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+// ===== Responsividade =====
+@media (max-width: 1024px) {
+    .footer {
+        &__content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &__social {
+            margin-left: 0;
+            justify-content: center;
+        }
+    }
+}
+

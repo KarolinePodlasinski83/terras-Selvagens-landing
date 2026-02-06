@@ -4,12 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terras Selvagens - Landing</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="dist/css/main.css">
-
 </head>
+
+<!-- MODAL DO TRAILER -->
+<div class="modal" id="trailerModal">
+    <div class="modal__content">
+        <button class="modal__close" id="closeTrailer">✕</button>
+
+        <div class="video-container">
+            <iframe
+                id="trailerIframe"
+                src=""
+                title="Trailer Predador: Terras Selvagens"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <body>
-    <header>
-        <h1></h1>
-    </header>
+
+    <section class="hero">
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <div class="hero__content__branding">
+                <div class="hero__logo">
+                <img src="./dist/images/disney+.jpg" alt="Disney+">
+            </div>
+        </div>
+
+            <h3 class="title--small">Predador: Terras Selvagens</h3>
+            <p class="text--highlight">O planeta mais perigoso. A caçada começou.</p>
+
+            <p class="text--description">
+                Expulso de seu clã, um jovem Predador precisa provar sua honra em uma caçada radical
+                em um planeta remoto e hostil. Sob a direção de Dan Trachtenberg.
+            </p>
+
+            <span class="text--medium color-cycle">
+                Dia 06/11/2025 nos cinemas mais próximos de você.
+            </span>
+            
+            <div class="hero__actions">
+                <a href="#" id="openTrailer" class="button--trailer">
+                    <i class='bx bx-play-circle'></i> Assistir ao Trailer
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel">
+        <h2 class="carousel__title">Galeria de Combate</h2>
+        <div class="carousel__container" id="carouselContainer">
+            <div class="carousel__item"><img src="./src/images/home.jpg" alt="Cena 0"></div>
+            <div class="carousel__item"><img src="./src/images/slide1.jpg" alt="Cena 1"></div>
+            <div class="carousel__item"><img src="./src/images/slide2.jpg" alt="Cena 2"></div>
+            <div class="carousel__item"><img src="./src/images/slide3.jpg" alt="Cena 3"></div>
+            <div class="carousel__item"><img src="./src/images/slide4.jpg" alt="Cena 4"></div>
+            <div class="carousel__item"><img src="./src/images/slide5.jpg" alt="Cena 5"></div>
+        </div>
+    </section>
+
+    <div class="modal" id="trailerModal">
+        <div class="modal__content">
+            <button class="modal__close" id="closeTrailer">✕</button>
+            <div class="video-container">
+                <iframe 
+                    id="trailerIframe" 
+                    src="" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="modal__info">
+                <h2 style="color: #fa1a1a;">Predador: Terras Selvagens</h2>
+                <p>O planeta mais perigoso. A caçada começou.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <img src="./dist/images/disney+.jpg" alt="Disney+">
+                </div>
+                <ul class="footer__social">
+                    <li><a href="#"><i class="bx bxl-facebook-circle"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-youtube"></i></a>
+                </ul>
+            </div>
+            <p class="footer__copyright">
+                &copy; Todos os direitos reservados a projeto Karoline Podlasinski.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // --- LÓGICA DO MODAL ---
+            const btnOpen = document.getElementById("openTrailer");
+            const btnClose = document.getElementById("closeTrailer");
+            const modal = document.getElementById("trailerModal");
+            const iframe = document.getElementById("trailerIframe");
+            const videoURL = "https://www.youtube.com/embed/43R9l7EkJwE?autoplay=1";
+
+            if (btnOpen && modal) {
+                btnOpen.onclick = function(e) {
+                    e.preventDefault();
+                    modal.classList.add("active");
+                    iframe.src = videoURL;
+                };
+            }
+
+            if (btnClose) {
+                btnClose.onclick = function() {
+                    modal.classList.remove("active");
+                    iframe.src = "";
+                };
+            }
+
+            window.onclick = function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove("active");
+                    iframe.src = "";
+                }
+            };
+
+            // --- LÓGICA DO CARROSSEL (Automático 3s) ---
+            const container = document.getElementById("carouselContainer");
+            const items = document.querySelectorAll(".carousel__item");
+            let index = 0;
+
+            if (container && items.length > 0) {
+                setInterval(() => {
+                    index++;
+                    if (index >= items.length) {
+                        index = 0; 
+                    }
+                    
+                    const itemWidth = items[0].offsetWidth;
+                    container.scrollTo({
+                        left: itemWidth * index,
+                        behavior: 'smooth'
+                    });
+                }, 3000);
+            }
+        });
+
+        const openTrailer = document.getElementById("openTrailer");
+    const closeTrailer = document.getElementById("closeTrailer");
+    const modal = document.getElementById("trailerModal");
+    const iframe = document.getElementById("trailerIframe");
+
+    const trailerURL = "https://www.youtube.com/embed/43R9l7EkJwE?autoplay=1";
+
+    openTrailer.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.add("active");
+        iframe.src = trailerURL;
+    });
+
+    closeTrailer.addEventListener("click", () => {
+        modal.classList.remove("active");
+        iframe.src = "";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+            iframe.src = "";
+        }
+    });
+    </script>
 </body>
 </html>
+

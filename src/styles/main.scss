@@ -1,5 +1,228 @@
-$bgColor: rgb(17, 255, 0);
+@use './variaveis';
+@use './hero';
+@use './footer';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
 body {
-    background-color: $bgColor;
+    background-color: variaveis.$corDeFundo;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 34px;
+    border-radius: 12px;
+    background: variaveis.$corDoTextoSecundario;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    }
+}
+
+// Estilo do Modal
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+    &.is-open {
+        display: flex;
+    }
+
+    &__content {
+        position: relative;
+        width: 90%;
+        max-width: 900px;
+        background: #000;
+    }
+
+    &__close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; // 16:9
+    height: 0;
+    iframe {
+        position: absolute;
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        display: flex;
+    }
+
+    &__content {
+        width: 90%;
+        max-width: 900px;
+        position: relative;
+        background: #000;
+    }
+
+    &__close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        font-size: 30px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+        .modal__info {
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Ajuste visual para o botão hero */
+        .button--trailer {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+    @keyframes trocaCor {
+        0% {
+            color: #ffffff; // fallback seguro
+        }
+
+        25% {
+            color: variaveis.$corDoTextoSecundario;
+        }
+
+        50% {
+            color: #f5c518; // dourado
+        }
+
+        75% {
+            color: #e50914; // vermelho
+        }
+
+        100% {
+            color: #00aaff; // azul
+        }
+    }
+
+    .carousel {
+    padding: 60px 0;
+    background-color: #000;
+    overflow: hidden;
+
+    &__title {
+        text-align: center;
+        color: #fa1a1a;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        font-family: sans-serif;
+    }
+
+    &__container {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        
+        // Esconde a barra de rolagem
+        &::-webkit-scrollbar { display: none; }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    &__item {
+        flex: 0 0 100%; // Exibe uma imagem por vez
+        scroll-snap-align: start;
+        display: flex;
+        justify-content: center;
+        
+        img {
+            width: 90%;
+            max-width: 1000px;
+            height: 450px;
+            object-fit: cover;
+            border: 2px solid #333;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+
+            &:hover {
+                border-color: #fa1a1a;
+            }
+        }
+
+        #carouselContainer {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap; /* Garante que os itens fiquem em linha */
+        }
+
+        .carousel__item {
+            flex: 0 0 100%; /* Cada item ocupa exatamente a largura total */
+        }
+            }
+        }
+
+// Responsividade para celulares
+@media (max-width: 768px) {
+    .carousel__item img {
+        height: 250px;
+        width: 95%;
+    }
 }
