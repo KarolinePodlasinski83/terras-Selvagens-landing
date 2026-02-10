@@ -1,0 +1,249 @@
+@use 'variaveis';
+
+// ================= HERO =================
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5.6vw;
+
+    background-image: url("../images/Predador-Terras-Selvagens-capa-nova.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    // ===== Overlay escuro =====
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+    // ===== Conteúdo =====
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 800px;
+
+        // ===== Branding (Ajustado para não quebrar o SCSS) =====
+        &__branding {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 9999;
+
+            img {
+                width: 72px;
+                height: auto;
+                mix-blend-mode: screen;
+                transition: transform 0.25s ease, filter 0.25s ease;
+
+                &:hover {
+                    transform: scale(1.08);
+                    filter: brightness(1.1);
+                }
+            }
+        }
+
+        .hero__logo-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 20;
+        }
+
+.hero__logo {
+    height: 46px;
+    width: auto;
+    border-radius: 25%;
+
+    background: transparent;
+    mix-blend-mode: screen;
+    filter:
+        brightness(1.15)
+        contrast(1.15)
+        drop-shadow(0 0 6px rgba(0,255,180,.55));
+
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.hero__logo:hover {
+    transform: scale(1.08);
+    filter:
+        brightness(1.25)
+        contrast(1.25)
+        drop-shadow(0 0 12px rgba(0,255,200,.9));
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero__logo {
+        height: 36px;
+    }
+
+    .hero__logo-wrapper {
+        top: 14px;
+        left: 14px;
+    }
+}
+
+        // ===== Título =====
+        .title--small {
+            position: relative;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ff2a2a;
+            // Certifique-se de ter a keyframe predatorPulse definida ou remova esta linha
+        }
+
+        .text--medium {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 12px 0 20px;
+    text-align: center;
+
+    &.color-cycle {
+        animation: neonRainbow 6s linear infinite;
+        text-shadow:
+            0 0 6px rgba(255,255,255,.5),
+            0 0 12px currentColor,
+            0 0 22px currentColor,
+            0 0 42px rgba(0,255,200,.7);
+    }
+}
+
+@keyframes neonRainbow {
+    0%   { color: #ff004c; }
+    14%  { color: #ff7b00; }
+    28%  { color: #ffee00; }
+    42%  { color: #00ff9d; }
+    57%  { color: #00eaff; }
+    71%  { color: #3b00ff; }
+    85%  { color: #c300ff; }
+    100% { color: #ff004c; }
+}
+
+
+        // ===== Highlight =====
+        .text--highlight {
+            margin-bottom: 24px;
+            padding: 10px 18px;
+            font-size: 1.1rem;
+            color: #eaeaea;
+            border-radius: 6px;
+
+            background:
+                linear-gradient(#000, #000) padding-box,
+                linear-gradient(
+                    120deg,
+                    #ff2a2a,
+                    #00ffb2,
+                    #ff6a00,
+                    #ff2a2a
+                ) border-box;
+
+            border: 2px solid transparent;
+            // Certifique-se de ter a keyframe predatorBorder definida ou remova esta linha
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: variaveis.$corDoTextoPrincipal;
+            opacity: 0.9;
+        }
+    }
+}
+
+// ================= TRAILER =================
+.trailer__video {
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+// ================= BOTÃO TRAILER =================
+.button--trailer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 24px;
+    padding: 14px 28px;
+
+    background: linear-gradient(135deg, #0f1a14, #10231a);
+    color: #e8fff6;
+
+    border: 1px solid rgba(0, 255, 178, 0.35);
+    border-radius: 12px;
+
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    i {
+        font-size: 1.6rem;
+        color: #00ffb2;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, #00ffb2, #00c78a);
+        color: variaveis.$corDeFundo;
+        border-color: #00ffb2;
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 0 15px rgba(0, 255, 178, 0.6);
+
+        i {
+            color: variaveis.$corDeFundo;
+            transform: scale(1.15);
+        }
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
+}
+
+// ================= TEXTO ARCO-ÍRIS =================
+.text--medium {
+    &.color-cycle {
+        font-weight: 600;
+        animation: arcoIris 6s linear infinite;
+    }
+}
+
+@keyframes arcoIris {
+    0%   { color: #ff0000; }
+    14%  { color: #ff7f00; }
+    28%  { color: #ffff00; }
+    42%  { color: #00ff00; }
+    57%  { color: #00ffff; }
+    71%  { color: #0000ff; }
+    85%  { color: #8b00ff; }
+    100% { color: #ff0000; }
+}

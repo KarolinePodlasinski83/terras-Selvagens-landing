@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predador: Terras Selvagens</title>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main.css">
+    </head>
+
+    <body>
+
+    <!-- MODAL -->
+    <div class="modal" id="trailerModal">
+    <div class="modal__content">
+        <button class="modal__close" id="closeTrailer">✕</button>
+        <div class="video-container">
+        <iframe id="trailerIframe" src="" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+    <div class="hero__content">
+        <div class="hero__logo-wrapper">
+            <img class="hero__logo" src="./dist/images/disney+.jpg" alt="Disney+">
+        </div>
+
+        <h3 class="title--small">Predador: Terras Selvagens</h3>
+        <p class="text--highlight">O planeta mais perigoso. A caçada começou.</p>
+
+        <p class="text--description">
+        Expulso de seu clã, um jovem Predador precisa provar sua honra
+        em um planeta remoto e hostil.
+        </p>
+
+        <span class="text--medium color-cycle">
+            Dia 06/11/2025 nos cinemas
+        </span>
+
+
+        <a href="#" id="openTrailer" class="button--trailer">
+        <i class='bx bx-play-circle'></i> Assistir ao Trailer
+        </a>
+    </div>
+    </section>
+
+    <!-- CARROSSEL -->
+    <section class="carousel">
+    <h2 class="carousel__title">
+    <span class="predator-smoke">Galeria deCombate</span>
+</h2>
+
+    <div class="carousel__viewport">
+        <div class="carousel__container" id="carouselContainer">
+        <div class="carousel__item"><img src="./src/images/home.jpg"></div>
+        <div class="carousel__item"><img src="./src/images/slide1.jpg"></div>
+        <div class="carousel__item"><img src="./src/images/slide2.jpg"></div>
+        <div class="carousel__item"><img src="./src/images/slide3.jpg"></div>
+        <div class="carousel__item"><img src="./src/images/slide4.jpg"></div>
+        <div class="carousel__item"><img src="./src/images/slide5.jpg"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- ABAS -->
+    <section class="shows">
+    <h2 class="title">Dados Técnicos</h2>
+
+    <div class="shows__tabs">
+        <button class="shows__tabs__button" data-tab-button="elenco">Elenco</button>
+        <button class="shows__tabs__button" data-tab-button="roteiro">Roteiro</button>
+        <button class="shows__tabs__button" data-tab-button="producao">Produção</button>
+        <button class="shows__tabs__button" data-tab-button="equipe">Equipe</button>
+    </div>
+
+    <ul class="shows__list" data-tab-id="elenco">
+        <li>Elle Fanning - Thia/Tessa</li>
+        <li>Dimitrius Schuster-Koloamatangi - Dek/Father(narração)</li>
+        <li>Ravi Narayan - Bud(as Rohinal Nayaran)</li>
+        <li>Chris Terhune - Bud(narração) (as Chris 'Pooka' Terhune)</li>
+        <li>Michael Homik - Kwei (Suit)(as Mike Homik)</li>
+        <li>Stefan Grube - Kwei(narração)</li>
+        <li>Reuben de Jong - Father (Suit)</li>
+        <li>Cameron Brown - Drone Synth</li>
+        <li>Alison Wright - MU/TH/UR(narração)</li>
+        <li>Matt Duffer - Kwei's Ship Computer(narração)</li>
+        <li>Ross Duffer - Kwei's Ship Computer(narração)</li>
+        <li></li>
+    </ul>
+
+    <ul class="shows__list" data-tab-id="roteiro">
+        <li>Dan Trachtenberg</li>
+        <li>Patrick Aison</li>
+        <li>Dan Trachtenberg</li>
+        <li>Jim Thomas</li>
+        <li>John Thomas</li>
+    </ul>
+
+    <ul class="shows__list" data-tab-id="producao">
+        <li>Richard Cowan - co-producer</li> 
+        <li>John Davis - producer</li>
+        <li>Lawrence Gordon - executive producer</li>
+        <li>Stefan Grube - executive producer</li>
+        <li>Brent O'Connor - producer</li>
+        <li>Ben Rosenblatt - produced by (p.g.a.)</li>
+        <li>Kathy Siegel - co-producer</li>
+        <li>Jim Thomas - executive producer (as James E. Thomas)</li>
+        <li>John Thomas - executive producer (as John C. Thomas)</li>
+        <li>Marc Toberoff - produced by</li>
+        <li>Dan Trachtenberg - produced by (p.g.a.)</li>
+    </ul>
+
+    <ul class="shows__list" data-tab-id="equipe">
+        <li>Jeff Cutter Diretor de fotografia</li>
+        <li>Olivier Dumont Supervisor de efeitos visuais</li>
+        <li>Jessica Sherman (III) Diretor de elenco</li>
+        <li>Stefan Grube Montador chefe</li>
+        <li>Dan Trachtenberg Montador chefe</li>
+        <li>Ra Vincent Designer de produção</li>
+    </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+    <h2 class="title">Perguntas Frequentes</h2>
+
+    <ul class="faq__questions">
+        <li class="faq__question__item">
+        <div class="faq__question__item__question" data-faq-question>Quando estreia?</div>
+        <div class="faq__question__item__answer">06/11/2025</div>
+        </li>
+        <li class="faq__question__item">
+        <div class="faq__question__item__question" data-faq-question>Onde assistir?</div>
+        <div class="faq__question__item__answer">Nos cinemas e depois no Disney+</div>
+        </li>
+    </ul>
+    </section>
+
+    <footer class="footer">
+    <div class="footer__container">
+
+        <img src="./dist/images/disney+.jpg" alt="Logo" class="footer__logo">
+
+        <p class="footer__text">
+            Landing Page – Projeto Karoline Podlasinski
+        </p>
+
+        <div class="footer__social">
+            <a href="https://github.com/" target="_blank" class="github">
+                <i class='bx bxl-github'></i>
+            </a>
+
+            <a href="https://facebook.com/" target="_blank" class="facebook">
+                <i class='bx bxl-facebook-circle'></i>
+            </a>
+
+            <a href="https://vercel.com/" target="_blank" class="vercel">
+                <i class='bx bx-globe'></i>
+            </a>
+        </div>
+
+    </div>
+</footer>
+
+<script src="./src/js/main.js"></script>
+</body>
+</html>
+
+
+

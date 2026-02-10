@@ -1,0 +1,155 @@
+@keyframes rainbowGlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes predatorScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+.faq {
+    padding: 5.6vw;
+    background:
+        radial-gradient(circle at center,
+            rgba(0,255,140,.12),
+            rgba(0,0,0,.95)
+        ),
+        linear-gradient(120deg,
+            rgba(255,0,0,.15),
+            rgba(0,255,140,.15),
+            rgba(0,120,255,.15)
+        );
+    background-size: 300% 300%;
+    animation: predatorScan 14s linear infinite;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 32px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 700;
+
+        background: linear-gradient(
+            90deg,
+            #ff004c,
+            #ff9900,
+            #ffee00,
+            #00ff9c,
+            #00c8ff,
+            #7a00ff,
+            #ff00f2,
+            #ff004c
+        );
+
+        background-size: 300%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: rainbowGlow 8s linear infinite;
+
+        filter: drop-shadow(0 0 12px rgba(0,255,255,.45));
+
+        &:hover {
+            filter:
+                drop-shadow(0 0 18px rgba(0,255,255,.9))
+                drop-shadow(0 0 32px rgba(255,0,255,.8));
+            transform: scale(1.03);
+        }
+    }
+
+    &__question {
+
+        &__item {
+            background: linear-gradient(145deg, #070b10, #0f1622);
+            margin-bottom: 16px;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all .45s ease;
+            border: 1px solid rgba(0,255,255,.12);
+
+            &:hover {
+                border-color: rgba(0,255,255,.55);
+                box-shadow:
+                    0 0 18px rgba(0,255,255,.35),
+                    inset 0 0 24px rgba(0,255,255,.06);
+            }
+
+            &__question {
+                color: #c9ff14;
+                font-size: 20px;
+                padding: 24px 70px 24px 24px;
+                cursor: pointer;
+                position: relative;
+                background: transparent;
+                transition: all .4s ease;
+
+                &:hover {
+                    background: linear-gradient(
+                        90deg,
+                        #ff004c,
+                        #ff9900,
+                        #ffee00,
+                        #00ff9c,
+                        #00c8ff,
+                        #7a00ff,
+                        #ff00f2,
+                        #ff004c
+                    );
+
+                    background-size: 300%;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    animation: rainbowGlow 6s linear infinite;
+                }
+
+                &::after {
+                    content: '+';
+                    position: absolute;
+                    top: 0;
+                    right: 24px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 42px;
+                    font-weight: 300;
+                    color: #00ffe1;
+                    transition: transform .4s ease, color .4s ease;
+                }
+            }
+
+            &__answer {
+                color: #b8ffe8;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0 24px;
+                transition: max-height .6s cubic-bezier(.4,0,.2,1),
+                            padding .4s ease;
+                line-height: 1.7;
+                font-size: 16px;
+            }
+        }
+
+        &__item--is-open {
+
+            border-color: rgba(0,255,255,.75);
+            box-shadow:
+                0 0 22px rgba(0,255,255,.5),
+                inset 0 0 32px rgba(0,255,255,.1);
+
+            .faq__question__item__question::after {
+                content: '-';
+                transform: rotate(180deg);
+                color: #ff00ff;
+            }
+
+            .faq__question__item__answer {
+                max-height: 1000px;
+                padding: 0 24px 24px;
+            }
+        }
+    }
+}
+

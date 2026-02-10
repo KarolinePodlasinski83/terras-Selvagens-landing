@@ -1,0 +1,125 @@
+.shows {
+    padding: 90px 5.6vw;
+    background: radial-gradient(circle at center, #050505, #000);
+    text-align: center;
+}
+
+/* TÍTULO */
+
+.shows .title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #ff2a2a;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+}
+
+/* BOTÕES */
+
+.shows__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.shows__tabs__button {
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #050505, #0a0a0a);
+    color: #00ffb2;
+    border: 1px solid rgba(0,255,178,.5);
+
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: all .35s ease;
+
+    box-shadow:
+        0 0 14px rgba(0,255,178,.5),
+        inset 0 0 12px rgba(0,255,178,.15);
+}
+
+.shows__tabs__button:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #3a0000, #9c0000);
+    border-color: #ff2a2a;
+
+    box-shadow:
+        0 0 18px rgba(255,0,0,.9),
+        inset 0 0 14px rgba(255,0,0,.6);
+
+    transform: scale(1.08);
+}
+
+/* LISTAS */
+
+.shows__list {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 32px;
+
+    background: linear-gradient(135deg, rgba(0,0,0,.95), rgba(10,10,10,.9));
+    border-radius: 18px;
+    border: 1px solid rgba(0,255,178,.3);
+
+    box-shadow:
+        0 0 25px rgba(0,255,178,.25),
+        inset 0 0 18px rgba(0,255,178,.15);
+
+    animation: predatorOpen .35s ease;
+}
+
+/* ATIVAÇÃO */
+
+.shows__list--is-active {
+    display: block;
+}
+
+/* ITENS */
+
+.shows__list li {
+    padding: 8px 0;
+    color: #ddd;
+    border-bottom: 1px solid rgba(209, 190, 190, 0.06);
+    transition: all .25s ease;
+}
+
+.shows__list li:hover {
+    color: #00ffb2;
+    padding-left: 10px;
+    text-shadow: 0 0 6px rgba(109, 207, 231, 0.7);
+}
+
+.shows__list li:last-child {
+    border-bottom: none;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes predatorOpen {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.shows__tabs__button--is-active {
+    color: #fff;
+    background: linear-gradient(135deg, #5a0000, #ff0000);
+    border-color: #ff2a2a;
+
+    box-shadow:
+        0 0 25px rgba(255,0,0,.9),
+        inset 0 0 18px rgba(255,0,0,.5);
+
+    transform: scale(1.12);
+}
+

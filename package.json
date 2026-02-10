@@ -1,0 +1,27 @@
+{
+  "name": "terras-selvagens-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarolinePodlasinski83/terras-Selvagens-landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarolinePodlasinski83/terras-Selvagens-landing/issues"
+  },
+  "homepage": "https://github.com/KarolinePodlasinski83/terras-Selvagens-landing#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.69.5"
+  }
+}
