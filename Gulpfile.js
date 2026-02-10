@@ -25,6 +25,8 @@ function copyHtml() {
         .pipe(gulp.dest('./dist'));
 }
 
+exports.default = gulp.parallel(styles, images, copyHtml);
+
 // 2. Adicione o copyHtml no export default
 exports.default = gulp.parallel(styles, images, copyHtml);
 
