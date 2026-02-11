@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     overflow: hidden;
 
-    // ===== Overlay escuro =====
+    // Overlay
     &__overlay {
         position: absolute;
         inset: 0;
@@ -23,7 +23,37 @@
         z-index: 1;
     }
 
-    // ===== Conteúdo =====
+    // Logo (FORA do content)
+    &__logo-wrapper {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 20;
+    }
+
+    &__logo {
+        height: 46px;
+        width: auto;
+        border-radius: 25%;
+        mix-blend-mode: screen;
+
+        filter:
+            brightness(1.15)
+            contrast(1.15)
+            drop-shadow(0 0 6px rgba(0,255,180,.55));
+
+        transition: transform .3s ease, filter .3s ease;
+
+        &:hover {
+            transform: scale(1.08);
+            filter:
+                brightness(1.25)
+                contrast(1.25)
+                drop-shadow(0 0 12px rgba(0,255,200,.9));
+        }
+    }
+
+    // Conteúdo central
     &__content {
         position: relative;
         z-index: 2;
@@ -32,66 +62,18 @@
         align-items: center;
         text-align: center;
         max-width: 800px;
-
-        // ===== Branding (Ajustado para não quebrar o SCSS) =====
-        &__branding {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 9999;
-
-            img {
-                width: 72px;
-                height: auto;
-                mix-blend-mode: screen;
-                transition: transform 0.25s ease, filter 0.25s ease;
-
-                &:hover {
-                    transform: scale(1.08);
-                    filter: brightness(1.1);
-                }
-            }
-        }
-
-        .hero__logo-wrapper {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 20;
-        }
-
-.hero__logo {
-    height: 46px;
-    width: auto;
-    border-radius: 25%;
-
-    background: transparent;
-    mix-blend-mode: screen;
-    filter:
-        brightness(1.15)
-        contrast(1.15)
-        drop-shadow(0 0 6px rgba(0,255,180,.55));
-
-    transition: transform .3s ease, filter .3s ease;
-}
-
-.hero__logo:hover {
-    transform: scale(1.08);
-    filter:
-        brightness(1.25)
-        contrast(1.25)
-        drop-shadow(0 0 12px rgba(0,255,200,.9));
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .hero__logo {
-        height: 36px;
     }
+}
 
+// Mobile
+@media (max-width: 768px) {
     .hero__logo-wrapper {
         top: 14px;
         left: 14px;
+    }
+
+    .hero__logo {
+        height: 36px;
     }
 }
 
@@ -165,8 +147,6 @@
             color: variaveis.$corDoTextoPrincipal;
             opacity: 0.9;
         }
-    }
-}
 
 // ================= TRAILER =================
 .trailer__video {
